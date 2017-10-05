@@ -101,6 +101,7 @@ public class PomTranslatorJob extends Job {
     IProject project = input.getProject();
     IFile pomXml = project.getFile(IMavenConstants.POM_FILE_NAME);
 
+	// This will fail if we have only the polyglot pom but no pom.xml
     IMavenProjectFacade facade = projectManager.create(pomXml, true, monitor);
     MavenProject mavenProject = facade.getMavenProject(monitor);
 
